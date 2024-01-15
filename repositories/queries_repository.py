@@ -52,6 +52,5 @@ class QueriesRepository(BaseRepository):
 
     def get_creating_indexes_for_optimisation_querries(self):
         with self.connection.cursor() as cursor:
-            create_index_query = f"CREATE INDEX idx_room_id  ON rooms(id), students(room)"
-            cursor.execute(create_index_query)
+            cursor.execute('CREATE INDEX idx_room_id  ON rooms(id), students(room)')
             self.connection.commit()
