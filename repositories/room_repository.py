@@ -15,8 +15,3 @@ class RoomRepository(BaseRepository):
             cursor.execute('SELECT * FROM rooms')
             values = cursor.fetchall()
             return values
-
-    def add_indexes(self):
-        with self.connection:
-            with self.cursor:
-                self.cursor.execute('CREATE * FROM rooms')
