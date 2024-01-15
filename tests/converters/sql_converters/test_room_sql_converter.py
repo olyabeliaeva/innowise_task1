@@ -7,13 +7,13 @@ from models.room import Room
 class TestRoomSqlConverter(unittest.TestCase):
 
     def test__convert_model(self):
-        test_student = Room(
+        test_room = Room(
             id=1,
             name='Room #1'
         )
 
         room_sql_converter = RoomSqlConverter()
-        result = room_sql_converter._convert_model(test_student)
+        result = room_sql_converter._convert_model(test_room)
         expected_result = (1, 'Room #1')
         self.assertEqual(result, expected_result)
 

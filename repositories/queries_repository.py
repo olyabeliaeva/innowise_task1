@@ -11,8 +11,7 @@ class QueriesRepository(BaseRepository):
                            'GROUP BY rooms.id '
                            'ORDER BY rooms.id;')
             values = cursor.fetchall()
-            for row in values:
-                print(row)
+            return values
 
     def get_five_rooms_with_min_avg_age_of_students(self):
         with self.connection.cursor() as cursor:
@@ -23,8 +22,7 @@ class QueriesRepository(BaseRepository):
                            'ORDER BY avg_birthday desc '
                            'LIMIT (5);')
             values = cursor.fetchall()
-            for row in values:
-                print(row)
+            return values
 
     def get_five_rooms_with_max_difference_age_of_students(self):
         with self.connection.cursor() as cursor:
@@ -36,8 +34,7 @@ class QueriesRepository(BaseRepository):
                            'ORDER BY diff_age DESC '
                            'LIMIT (5);')
             values = cursor.fetchall()
-            for row in values:
-                print(row)
+            return values
 
     def get_list_of_rooms_includes_students_with_different_sexes(self):
         with self.connection.cursor() as cursor:
@@ -47,8 +44,7 @@ class QueriesRepository(BaseRepository):
                            'GROUP BY rooms.id '
                            'HAVING COUNT(DISTINCT students.sex) > 1;')
             values = cursor.fetchall()
-            for row in values:
-                print(row)
+            return values
 
     def get_creating_indexes_for_optimisation_querries(self):
         with self.connection.cursor() as cursor:
