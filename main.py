@@ -8,8 +8,6 @@ from services.queries_service import QueriesService
 from services.room_service import RoomService
 from services.student_service import StudentService
 
-# script: python main.py --students-json students.json --rooms-json rooms.json --query 1 --output-format JSON
-
 queries_service = QueriesService()
 choise_to_query = {
     '1': queries_service.get_list_of_rooms_with_quantity_students,
@@ -20,6 +18,14 @@ choise_to_query = {
 
 
 def main():
+    """
+    Main entry point for the script.
+
+    Parses command-line arguments, reads data from JSON files, performs queries,
+    and saves the results in the specified output format.
+
+    Usage: python main.py --students-json students.json --rooms-json rooms.json --query 1 --output-format JSON/XML
+    """
     parser = argparse.ArgumentParser(description='Command-line interface for reading and saving data')
 
     parser.add_argument('--rooms-json', help='Path to rooms JSON file')

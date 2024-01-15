@@ -7,13 +7,26 @@ from services.room_service import RoomService
 
 
 class RoomServiceTest(unittest.TestCase):
+    """
+    Unit tests for the RoomService class.
+
+    This class inherits from unittest.TestCase and contains tests for various methods of the RoomService class.
+    """
 
     def setUp(self):
+        """
+        Set up the necessary instances for each test method.
+        """
         self.room_service = RoomService()
 
     @patch('converters.sql_converters.room_sql_converter.RoomSqlConverter')
     @patch('repositories.room_repository.RoomRepository')
     def test_save_all(self, mock_room_repository, mock_room_sql_converter):
+        """
+        Test the save_all method of RoomService.
+
+        Mocks the dependencies and checks if the appropriate methods are called.
+        """
         rooms = [
             Room(id=1, name='Room #1'),
             Room(id=2, name='Room #2')
@@ -30,6 +43,11 @@ class RoomServiceTest(unittest.TestCase):
     @patch('converters.sql_converters.room_sql_converter.RoomSqlConverter')
     @patch('repositories.room_repository.RoomRepository')
     def test_get_all(self, mock_room_repository, mock_room_sql_converter):
+        """
+        Test the get_all method of RoomService.
+
+        Mocks the dependencies and checks if the appropriate methods are called.
+        """
         mock_converter_instance = mock_room_sql_converter.return_value
         mock_repository_instance = mock_room_repository.return_value
         self.room_service.room_sql_converter = mock_converter_instance
@@ -41,6 +59,11 @@ class RoomServiceTest(unittest.TestCase):
 
     @patch('converters.type_converters.type_converter.TypeConverter')
     def test_save_to_file(self, mock_type_converter):
+        """
+        Test the save_to_file method of RoomService.
+
+        Mocks the dependencies and checks if the appropriate methods are called.
+        """
         rooms = [
             Room(id=1, name='Room #1'),
             Room(id=2, name='Room #2')
