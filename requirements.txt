@@ -1,0 +1,10 @@
+dicttoxml==1.7.16
+environ==1.0
+et==0.0.2
+flake8==6.1.0
+Gnosis==0.1.1
+isort==5.13.2
+mccabe==0.7.0
+psycopg2==2.9.9
+pycodestyle==2.11.1
+pyflakes==3.1.0
